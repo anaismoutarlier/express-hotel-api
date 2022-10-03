@@ -1,12 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
 import routes from "./routes/index.js";
+import { config } from "dotenv";
+config();
 
 const PORT = process.env.PORT || 3000;
-
 mongoose
   .connect(
-    "mongodb+srv://la-capsule:yisdf1HUmykN40CX@cluster0.bfcvn.mongodb.net/hotel-api?retryWrites=true&w=majority",
+    process.env.CONNECTION_STRING,
     { connectTimeoutMS: 30000 }
   )
   .then(() => console.log("Database connected"))
