@@ -5,8 +5,8 @@
   "author": "Anais Moutarlier <anaismoutarlier@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "set NODE_ENV=production && node index.js",
+    "dev": "set NODE_ENV=development && nodemon index.js"
   },
   "dependencies": {
     "dotenv": "^16.0.3",

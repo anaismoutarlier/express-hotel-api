@@ -2,7 +2,16 @@ import express from "express";
 import mongoose from "mongoose";
 import routes from "./routes/index.js";
 import { config } from "dotenv";
-config();
+import path from "path";
+import {fileURLToPath} from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+
+console.log(process.env.NODE_ENV)
+
+config({
+  path: path.resolve(path.dirname(__filename), `${process.env.NODE_ENV.trim()}.env`)
+});
 
 const PORT = process.env.PORT || 3000;
 mongoose
